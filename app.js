@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const pool =require('./db')
 
 var registerRouter = require('./routes/register');
 var usersRouter = require('./routes/users');
