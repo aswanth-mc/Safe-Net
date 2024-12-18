@@ -1,0 +1,51 @@
+.left-pannel{
+  width: 50%;
+  height:100vh ;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #BFFFC3;
+  position: sticky;
+  top: 0;
+}
+
+img{
+  width: 200px;
+  width: 431px;
+  height: 422px;
+}
+
+.explore{
+  color: #5EA131;
+  font-size: 55px;
+  font-family: "poppins",sans-serif;
+  font-weight: bold;
+}
+
+.para{
+  font-size: 22px;
+  font-family: "inter",sans-serif;
+
+}
+.box{
+  display: flex;
+}
+
+.right-pannel{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #AEFEB3;
+}
+
+.form{
+  margin-left: 100px;
+}
+
+.button{
+  background-color: #4A8A28;
+  margin-left: 100px;
+}
