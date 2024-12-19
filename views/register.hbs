@@ -12,25 +12,25 @@
             </div>
 
             <div class="right-pannel">
-                <form class="form">
+                <form class="form" action="/register" method="post" >
                     <div class="mb-3">
                         <fieldset>
                                 <legend>Personal information</legend>
                                 <br>
                                 <label for="name" class="form-label">Full Name</label>
-                                <input type="text" class="form-control" id="name" >
+                                <input type="text" class="form-control" id="name" name="name" >
                             </div>
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="mail" >
+                                <input type="email" class="form-control" id="mail" name="mail" >
                             </div>
                             <div class="mb-3">
                                 <label for="number" class="form-label">Phone Number</label>
-                                <input type="text" class="form-control" id="number" >
+                                <input type="text" class="form-control" id="number" name="no">
                             </div>
                             <div class="mb-3">
                                 <label for="dob" class="form-label">Date Of Birth</label>
-                                <input type="date" class="form-control" id="dob" >
+                                <input type="date" class="form-control" id="dob" name="dob" >
                                 <br><br>
                         </fieldset>
                 </div>
@@ -40,23 +40,23 @@
                         <br>
                         <div class="mb-3">
                             <label for="designation" class="form-label">Designation</label>
-                            <input type="text" class="form-control" id="designation" >
+                            <input type="text" class="form-control" id="designation" name="designation" >
                         </div>
                         <div class="mb-3">
                             <label for="department" class="form-label">Department</label>
-                            <input type="text" class="form-control" id="department" >
+                            <input type="text" class="form-control" id="department" name="dep">
                         </div>
                         <div class="mb-3">
                             <label for="em_id" class="form-label">Employee ID</label>
-                            <input type="text" class="form-control" id="em_id" >
+                            <input type="text" class="form-control" id="em_id" name="eid">
                         </div>
                         <div class="mb-3">
                             <label for="district" class="form-label">District</label>
-                            <input type="text" class="form-control" id="district" >
+                            <input type="text" class="form-control" id="district" name="dis">
                         </div>
                         <div class="mb-3">
                             <label for="office_address" class="form-label">office Address</label>
-                            <textarea class="form-control" id="office_address" rows="3"></textarea>
+                            <textarea class="form-control" id="office_address" rows="3" name="oadd"></textarea>
                           </div>
                     </filedset>
                 </div>
@@ -67,11 +67,11 @@
                         <br>
                         <div class="mb-3">
                             <label for="id_proof" class="form-label">ID Proof</label>
-                            <input class="form-control" type="file" id="id_proof">
+                            <input class="form-control" type="file" id="id_proof" name="idp">
                           </div>
                           <div class="mb-3">
                             <label for="authenticaton" class="form-label">Authentication Letter</label>
-                            <input class="form-control" type="file" id="authenticaton">
+                            <input class="form-control" type="file" id="authenticaton" name="al">
                           </div>
                     </fieldset>
                 </div>
@@ -80,22 +80,24 @@
                 <div class="mb-3">
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="omail">
                         <div id="emailHelp" class="form-text">enter official mail.</div>
                       </div>
                       <div class="mb-3">
                         <label for="pass" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
+                        <input type="password" class="form-control" id="exampleInputPassword1" name="pass">
                       </div>
                       <div class="mb-3">
                         <label for="cpass" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control" id="cpass">
+                        <input type="password" class="form-control" id="cpass" name="cps">
                       </div>
                 </div>
                 <br><br>
-                <a href="login.html">
-                    <button>register</button>
-                </a>
+
+               
+               
+                    <button type="submit">register</button>
+                
                 </form>
             </div>
    </div>
