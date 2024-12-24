@@ -28,12 +28,8 @@
                                 <label for="number" class="form-label">Phone Number</label>
                                 <input type="text" class="form-control" id="number" name="no">
                             </div>
-                            <div class="mb-3">
-                                <label for="dob" class="form-label">Date Of Birth</label>
-                                <input type="date" class="form-control" id="dob" name="dob" >
                                 <br><br>
                         </fieldset>
-                </div>
                 <div class="mb-3">
                     <filedset>
                         <legend>Employee Deatis</legend>
@@ -62,7 +58,7 @@
                 </div>
                 <br><br>
                 <div class="mb-3">
-                    <fieldset>
+                    {{!<fieldset>
                         <legend>Verification</legend>
                         <br>
                         <div class="mb-3">
@@ -70,35 +66,48 @@
                             <input class="form-control" type="file" id="id_proof" name="idp">
                           </div>
                           <div class="mb-3">
-                            <label for="authenticaton" class="form-label">Authentication Letter</label>
+                            <label for="authenticaton" class="form-label">Photo</label>
                             <input class="form-control" type="file" id="authenticaton" name="al">
                           </div>
-                    </fieldset>
+                    </fieldset>}}
                 </div>
                 <br>
                 <br>
                 <div class="mb-3">
-                    <div class="mb-3">
+                    {{!<div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="omail">
-                        <div id="emailHelp" class="form-text">enter official mail.</div>
-                      </div>
-                      <div class="mb-3">
-                        <label for="pass" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" name="pass">
-                      </div>
-                      <div class="mb-3">
-                        <label for="cpass" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control" id="cpass" name="cps">
-                      </div>
+                      </div>}}
+                                            <div>
+                        <div class="mb-3">
+                            <label for="pass" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1"name="pass">
+                        </div>
+                        <div class="mb-3">
+                            <label for="cpass" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="cpass"name="cpass">
+                        </div>
+                        <p id="errorMessage" class="error" style="display: none;"></p>
+                    </div>
                 </div>
                 <br><br>
-
-               
-               
-                    <button type="submit">register</button>
-                
+                <button type="submit"  class="button">Register</button>
                 </form>
             </div>
    </div>
+   {{! <script>
+    function validatePasswords() 
+    { 
+        const password = document.getElementById('password').value; 
+        const confirmPassword = document.getElementById('confirmPassword').value; 
+        const errorMessage = document.getElementById('errorMessage'); 
+        if (password !== confirmPassword) 
+            { 
+                errorMessage.textContent = 'Passwords do not match'; 
+                errorMessage.style.display = 'block';
+                return false; 
+                
+            } 
 
+    }
+   </script> }}
