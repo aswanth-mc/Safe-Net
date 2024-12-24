@@ -21,22 +21,26 @@ router.post('/',async(req,res)=>{
     return res.status(400).send('password do not match');
 
   }
-  const Password = bcrypt.hashSync(pass,10);
-  console.log('hased password',Password);
-  
+  try {
+    const hashedPassword = bcrypt.hashSync(pass, 10);
+    const query = `
+      INSERT INTO autho_test2 (name, email, phone, designation, department, district, empid, off_add, password)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+      RETURNING id;
+    `;
+    const values = [name, mail, no, designation, dep, dis, eid, oadd, hashedPassword];
 
-  console.log({
-    name,
-    mail,
-    no,
-    designation,
-    dep,
-    eid,
-    dis,
-    oadd,
-    Password
-  });
+    console.log('Executing query:', query);
+    console.log('With values:', values);
 
+    const result = await pool.query(query, values);
+
+    console.log('Inserted ID:', result.rows[0].id);
+    res.send('User registered successfully!');
+  } catch (error) {
+    console.error('Error saving to database:', error.message);
+    res.status(500).send('An error occurred while saving data.');
+  }
 });
 
 
