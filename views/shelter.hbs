@@ -1,0 +1,81 @@
+
+<head>
+    <link rel="stylesheet" href="/stylesheets/volunteer.css">
+    <link rel="stylesheet" href="/stylesheets/shelter.css">
+</head>
+<body>
+    <div class="nav">
+        <a href="home.html">
+        <div class="back">
+            <img src="assets/icons/back-button.png" alt="logout" class="back-icon">
+        </div>
+        </a>
+        <div>
+            <img src="assets/images/SafeNet.png" alt="logo" class="logo">
+        </div>
+    </div>
+    <div class="main">
+        <h1 class="title">Shelter Details</h1>
+
+        <button class="btn" id="openPopup">New</button>
+        <table class="table">
+            <tr>
+                <th>Location</th>
+                <th>District</th>
+                <th>pincode</th>
+                <th></th>
+        
+            </tr>
+            <tr>
+                <td>SafeNet</td>
+                <td>aghoshmohant@gmail.com</td>
+                <td>8590650812</td>
+                <td>
+                    <button class="reject-btn">Delete</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="body" id="popupOverlay">
+        <div class="box">
+            <img src="./assets/icons/close.png" alt="" class="close" id="closePopup">
+            <div>
+                <label for="location" class="lab">Location</label>
+                <input type="text" name="location" id="" class="inp">
+            </div>
+            <div>
+                <label for="district" class="lab">District</label>
+                <input type="text" name="district" id="" class="inp">
+            </div>
+            <div>
+                <label for="category" class="lab">Pincode</label>
+                <input type="text" name="category" id="" class="inp">
+            </div>
+            <div>
+                <button class="submit">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const openPopup = document.getElementById("openPopup");
+        const popupOverlay = document.getElementById("popupOverlay");
+        const closePopup = document.getElementById("closePopup");
+
+        openPopup.addEventListener("click", () => {
+            popupOverlay.style.display = "flex"; 
+        });
+
+        closePopup.addEventListener("click", () => {
+            popupOverlay.style.display = "none"; 
+        });
+
+       
+        popupOverlay.addEventListener("click", (event) => {
+            if (event.target === popupOverlay) {
+                popupOverlay.style.display = "none";
+            }
+        });
+    </script>
+</body>
