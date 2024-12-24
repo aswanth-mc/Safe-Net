@@ -37,7 +37,7 @@ app.use('/volunteer',volunteerRouter);
 app.use('/shelter',shelterRouter);
 app.use('/call_vechicle',call_vehicleRouter);
 app.use('/call_volunteerr',call_volunteerRouter);
-app.use('/requirements',requirementsrRouter);
+app.use('/requirement',requirementsrRouter);
 app.use('disasterlist',disasterlistRouter);
 app.use('organization',organizationRouter);
 
