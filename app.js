@@ -11,7 +11,12 @@ var registerRouter = require('./routes/register');
 var homeRouter = require('./routes/home');
 var loginRouter =require('./routes/login')
 var volunteerRouter =require('./routes/volunteer');
-var shelterROuter =require('./routes/shelter')
+var call_vehicleRouter =require('./routes/call_vehicle');
+var call_volunteerRouter =require('./routes/call_volunteer');
+var disasterlistRouter =require('./routes/disasterlist');
+var organizationRouter =require('./routes/organization');
+var requirementsrRouter =require('./routes/requirement');
+var shelterRouter =require('./routes/shelter');
 
 var app = express();
 
@@ -29,7 +34,15 @@ app.use('/register', registerRouter);
 app.use('/home', homeRouter);
 app.use('/login',loginRouter);
 app.use('/volunteer',volunteerRouter);
-app.use('/shelter',shelterROuter)
+app.use('/shelter',shelterRouter);
+app.use('/call_vechicle',call_vehicleRouter);
+app.use('/call_volunteerr',call_volunteerRouter);
+app.use('/requirements',requirementsrRouter);
+app.use('disasterlist',disasterlistRouter);
+app.use('organization',organizationRouter);
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,7 +1,6 @@
 
 <head>
-    <link rel="stylesheet" href="/stylesheets/style1.css">
-    <link rel="stylesheet" href="/stylesheets/style2.css">
+    <link rel="stylesheet" href="css/style2.css">
 </head>
 <body>
     <div class="nav">
@@ -15,14 +14,15 @@
         </div>
     </div>
     <div class="main">
-        <h1 class="title">Shelter Details</h1>
+        <h1 class="title">Call for Vehicles</h1>
 
         <button class="btn" id="openPopup">New</button>
         <table class="table">
             <tr>
                 <th>Location</th>
                 <th>District</th>
-                <th>pincode</th>
+                <th>Type</th>
+                <th>Count</th>
                 <th></th>
         
             </tr>
@@ -30,6 +30,7 @@
                 <td>SafeNet</td>
                 <td>aghoshmohant@gmail.com</td>
                 <td>8590650812</td>
+                <td>2</td>
                 <td>
                     <button class="reject-btn">Delete</button>
                 </td>
@@ -49,8 +50,12 @@
                 <input type="text" name="district" id="" class="inp">
             </div>
             <div>
-                <label for="category" class="lab">Pincode</label>
+                <label for="category" class="lab">Type</label>
                 <input type="text" name="category" id="" class="inp">
+            </div>
+            <div>
+                <label for="count" class="lab">Count</label>
+                <input type="number" name="count" id="" class="inp"> 
             </div>
             <div>
                 <button class="submit">Submit</button>
