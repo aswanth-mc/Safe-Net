@@ -6,6 +6,7 @@ var logger = require('morgan');
 const pool =require('./db')
 const cors = require("cors")
 
+
 var registerRouter = require('./routes/register');
 var homeRouter = require('./routes/home');
 var loginRouter =require('./routes/login')

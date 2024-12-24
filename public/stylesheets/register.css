@@ -45,7 +45,9 @@ img{
   margin-left: 100px;
 }
 
-.button{
-  background-color: #4A8A28;
+.btn{
   margin-left: 100px;
+  color: #fafafa;
+  background-color: #5EA131;
+  border: #5EA131;
 }
