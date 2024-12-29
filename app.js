@@ -7,6 +7,7 @@ const pool =require('./db')
 const cors = require("cors")
 
 
+
 var registerRouter = require('./routes/register');
 var homeRouter = require('./routes/home');
 var loginRouter =require('./routes/login')
@@ -15,8 +16,9 @@ var call_vehicleRouter =require('./routes/call_vehicle');
 var call_volunteerRouter =require('./routes/call_volunteer');
 var disasterlistRouter =require('./routes/disasterlist');
 var organizationRouter =require('./routes/organization');
-var requirementsrRouter =require('./routes/requirement');
+var requirementrRouter =require('./routes/requirement');
 var shelterRouter =require('./routes/shelter');
+
 
 var app = express();
 
@@ -30,6 +32,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use('/register', registerRouter);
 app.use('/home', homeRouter);
 app.use('/login',loginRouter);
@@ -37,9 +40,9 @@ app.use('/volunteer',volunteerRouter);
 app.use('/shelter',shelterRouter);
 app.use('/call_vechicle',call_vehicleRouter);
 app.use('/call_volunteerr',call_volunteerRouter);
-app.use('/requirement',requirementsrRouter);
-app.use('disasterlist',disasterlistRouter);
-app.use('organization',organizationRouter);
+app.use('/requirement',requirementrRouter);
+app.use('/disasterlist',disasterlistRouter);
+app.use('/organization',organizationRouter);
 
 
 

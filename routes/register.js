@@ -1,4 +1,5 @@
 const bcrypt =require ('bcryptjs')
+const multer = require("multer");
 
 
 var express = require('express');
@@ -6,8 +7,16 @@ var router = express.Router();
 const pool =require("../db");
 
 
+//multer
+const storge = multer.diskStorage({
+  destination : "../uploads",
+  filename : (req,file,cb)=>{
+    cb(null,'${Date.now()}-${file.originalname}');
+  }
+});
 
-
+const upload =multer({storage});
+app.use('../uploads',express.static(path.join(__dirname,'uploads')));
 
 /* GET home page. */
 router.get('/', function(req, res) {
