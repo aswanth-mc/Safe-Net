@@ -30,7 +30,7 @@ router.get('/', function(req, res) {
   res.render('register');
 });
 
-router.post('/register',upload.fields([{name:'idp'},{name:'photo'}]),async(req,res)=>{
+router.post('/',upload.fields([{name:'idp'},{name:'photo'}]),async(req,res)=>{
 
   const { name,mail,no,designation,dep,eid,dis,oadd,pass,cpass }=req.body;
 
@@ -41,7 +41,7 @@ router.post('/register',upload.fields([{name:'idp'},{name:'photo'}]),async(req,r
   try {
     const hashedPassword = bcrypt.hashSync(pass, 10);
     const query = `
-      INSERT INTO authority (name, email, phone, designation, department, district, empid, off_add, password)
+      INSERT INTO authority (name, email, phone_number, designation, department, district, employee_id, office_address , password_hash)
       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
       RETURNING id;
     `;
