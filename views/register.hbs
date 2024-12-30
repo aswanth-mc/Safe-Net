@@ -12,7 +12,7 @@
             </div>
 
             <div class="right-pannel">
-                <form class="form" action="/register" method="post" >
+                <form class="form" action="/register" method="post" onsubmit="reurn validatePassword()">
                     <div class="mb-3">
                         <fieldset>
                                 <legend>Personal information</legend>
@@ -95,7 +95,7 @@
                 </form>
             </div>
    </div>
-   {{! <script>
+<script>
     function validatePasswords() 
     { 
         const password = document.getElementById('password').value; 
@@ -110,4 +110,4 @@
             } 
 
     }
-   </script> }}
+   </script> 

@@ -1,30 +1,37 @@
-const bcrypt =require ('bcryptjs')
-const multer = require("multer");
-
 
 var express = require('express');
 var router = express.Router();
 const pool =require("../db");
 const path = require("path")
+const bcrypt =require ('bcryptjs')
+const multer = require("multer");
+const fs = require ("fs")
 
 
 //multer
 const storage = multer.diskStorage({
-  destination : "../uploads",
+  destination: (req, file, cb) => {
+    const uploadPath = path.join(__dirname, '../uploads');
+    if (!fs.existsSync(uploadPath)) {
+      fs.mkdirSync(uploadPath, { recursive: true }); // Create directory if it doesn't exist
+    }
+    cb(null, uploadPath); 
+  },
   filename : (req,file,cb)=>{
     cb(null,'${Date.now()}-${file.originalname}');
-  }
+  },
 });
 
 const upload =multer({storage});
-router.use('../uploads',express.static(path.join(__dirname,'uploads')));
+
 
 /* GET home page. */
 router.get('/', function(req, res) {
   res.render('register');
 });
 
-router.post('/',async(req,res)=>{
+router.post('/register',upload.fields([{name:'idp'},{name:'photo'}]),async(req,res)=>{
+
   const { name,mail,no,designation,dep,eid,dis,oadd,pass,cpass }=req.body;
 
   if (pass !=cpass){
@@ -34,7 +41,7 @@ router.post('/',async(req,res)=>{
   try {
     const hashedPassword = bcrypt.hashSync(pass, 10);
     const query = `
-      INSERT INTO autho_test2 (name, email, phone, designation, department, district, empid, off_add, password)
+      INSERT INTO authority (name, email, phone, designation, department, district, empid, off_add, password)
       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
       RETURNING id;
     `;
