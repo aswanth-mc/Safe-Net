@@ -1,18 +1,14 @@
-create table authority_test
-    (
-        id serial primary key,
-        name varchar(20) not null,
-        email varchar(20) not null,
-        phone varchar(20) not null,
-        dob date not null,
-        designation varchar(30) not null,
-        department varchar(30) not null,
-        employee_id varchar(20) not null,
-        district varchar(20) not null,
-        office_add varchar(100),
-        id_proff bytea not null,
-        autho_letter bytea,
-        offical_mail varchar(20) not null,
-        password varchar(20) not null,
-        unique(offical_mail)
-        );
+create table authority(
+     id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    phone_number VARCHAR(15) NOT NULL,
+    designation VARCHAR(100),
+    department VARCHAR(100),
+    employee_id VARCHAR(50),
+    district VARCHAR(100),
+    office_address TEXT,
+    id_proof TEXT,
+    photo TEXT,
+    password_hash TEXT NOT NULL
+);
