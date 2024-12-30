@@ -16,7 +16,7 @@ var call_vehicleRouter =require('./routes/call_vehicle');
 var call_volunteerRouter =require('./routes/call_volunteer');
 var disasterlistRouter =require('./routes/disasterlist');
 var organizationRouter =require('./routes/organization');
-var requirementrRouter =require('./routes/requirement');
+var requirementRouter =require('./routes/requirement');
 var shelterRouter =require('./routes/shelter');
 
 
@@ -38,9 +38,9 @@ app.use('/home', homeRouter);
 app.use('/login',loginRouter);
 app.use('/volunteer',volunteerRouter);
 app.use('/shelter',shelterRouter);
-app.use('/call_vechicle',call_vehicleRouter);
-app.use('/call_volunteerr',call_volunteerRouter);
-app.use('/requirement',requirementrRouter);
+app.use('/call_vehicle',call_vehicleRouter);
+app.use('/call_volunteer',call_volunteerRouter);
+app.use('/requirements',requirementRouter);
 app.use('/disasterlist',disasterlistRouter);
 app.use('/organization',organizationRouter);
 

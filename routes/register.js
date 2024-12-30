@@ -10,15 +10,9 @@ const fs = require ("fs")
 
 //multer
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    const uploadPath = path.join(__dirname, '../uploads');
-    if (!fs.existsSync(uploadPath)) {
-      fs.mkdirSync(uploadPath, { recursive: true }); // Create directory if it doesn't exist
-    }
-    cb(null, uploadPath); 
-  },
-  filename : (req,file,cb)=>{
-    cb(null,'${Date.now()}-${file.originalname}');
+  destination: path.join(__dirname, '../uploads'), // Ensure correct path
+  filename: (req, file, cb) => {
+    cb(null, `${Date.now()}-${file.originalname}`);
   },
 });
 
@@ -32,20 +26,28 @@ router.get('/', function(req, res) {
 
 router.post('/',upload.fields([{name:'idp'},{name:'photo'}]),async(req,res)=>{
 
-  const { name,mail,no,designation,dep,eid,dis,oadd,pass,cpass }=req.body;
-
+  console.log('uploaded files ',req.files);
+  console.log('request body ',req.body);
+  if (!req.files['idp'] || !req.files['photo']) {
+    return res.status(400).send('File upload failed. Please check your input.');
+  }
+  const pass = req.body.pass;
+  const cpass = req.body.cpass;
+  const { name,mail,no, designation, dep, dis, eid, oadd, password_hash,idp,photo }=req.body
   if (pass !=cpass){
     return res.status(400).send('password do not match');
 
   }
   try {
-    const hashedPassword = bcrypt.hashSync(pass, 10);
+    const password_hash = bcrypt.hashSync(pass, 10);
+    const idProofPath =req.files['idp']? req.files['idp'][0].path:null;
+    const photoPath =req.files['photo']? req.files['photo'][0].path:null;
     const query = `
-      INSERT INTO authority (name, email, phone_number, designation, department, district, employee_id, office_address , password_hash)
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+      INSERT INTO authority (name, email, phone_number, designation, department, district, employee_id, office_address , password_hash,id_proof,photo)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
       RETURNING id;
     `;
-    const values = [name, mail, no, designation, dep, dis, eid, oadd, hashedPassword];
+    const values = [name, mail, no, designation, dep, dis, eid, oadd, password_hash,idProofPath,photoPath];
 
     console.log('Executing query:', query);
     console.log('With values:', values);

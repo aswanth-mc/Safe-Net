@@ -12,7 +12,7 @@
             </div>
 
             <div class="right-pannel">
-                <form class="form" action="/register" method="post" onsubmit="reurn validatePassword()">
+                <form class="form" action="/register" method="post" onsubmit="reurn validatePassword()" enctype="multipart/form-data">
                     <div class="mb-3">
                         <fieldset>
                                 <legend>Personal information</legend>
@@ -81,7 +81,7 @@
                                             <div>
                         <div class="mb-3">
                             <label for="pass" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1"name="pass">
+                            <input type="password" class="form-control" id="pass"name="pass">
                         </div>
                         <div class="mb-3">
                             <label for="cpass" class="form-label">Confirm Password</label>
