@@ -14,28 +14,32 @@
             <img src="/images/SafeNet.png" alt="logo" class="logo">
         </div>
     </div>
-
-    <div class="main">
-        <h1 class="title">Organization Verification</h1>
-        <table class="table">
-            <tr>
+<div class="main">
+    <h1 class="title">Organization Verification</h1>
+    <table class="table">
+        <tr>
+            <thead>
                 <th>Organization Name</th>
                 <th>Email</th>
                 <th>Phone Number</th>
                 <th>Location</th>
                 <th></th>
-        
-            </tr>
+        </tr>
+        </thead>
+        <tbody>
+            {{#each data}}
             <tr>
-                <td>SafeNet</td>
-                <td>aghoshmohant@gmail.com</td>
-                <td>8590650812</td>
-                <td>Nanminda</td>
+                <td>{{this.name}}</td>
+                <td>{{this.location}}</td>
+                <td>{{this.Phone}}</td>
+                <td>{{this.email}}</td>
                 <td>
                     <button class="approve-btn">Approve</button>
                     <button class="reject-btn">Reject</button>
                 </td>
             </tr>
-        </table>
-    </div>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
 </body>
