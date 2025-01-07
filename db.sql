@@ -10,5 +10,6 @@ create table authority(
     office_address TEXT,
     id_proof TEXT,
     photo TEXT,
-    password_hash TEXT NOT NULL
+    password_hash TEXT NOT NULL,
+    verified boolean default false
 );
