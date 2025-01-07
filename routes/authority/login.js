@@ -4,7 +4,7 @@ const pool = require('../../db');
 
 // Render login page
 router.get('/', function (req, res, next) {
-  res.render('authority/login');
+  res.render('/login');
 });
 
 // Handle login

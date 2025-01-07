@@ -7,17 +7,9 @@ const pool =require('./db')
 const cors = require("cors")
 
 
-
-var registerRouter = require('./routes/authority/register');
-var homeRouter = require('./routes/authority/home');
-var loginRouter =require('./routes/authority/login')
-var volunteerRouter =require('./routes/authority/volunteer');
-var call_vehicleRouter =require('./routes/authority/call_vehicle');
-var call_volunteerRouter =require('./routes/authority/call_volunteer');
-var disasterlistRouter =require('./routes/authority/disasterlist');
-var organizationRouter =require('./routes/authority/organization');
-var requirementRouter =require('./routes/authority/requirement');
-var shelterRouter =require('./routes/authority/shelter');
+var authority = require('./authority');
+var admin = require('./admin');
+var welcomeRouter =require('./routes/welcome');
 
 
 var app = express();
@@ -33,9 +25,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use('/register', registerRouter);
+/*app.use('/register', registerRouter);
 app.use('/home', homeRouter);
-app.use('/login',loginRouter);
+app.use('/authority-login',loginRouter);
 app.use('/volunteer',volunteerRouter);
 app.use('/shelter',shelterRouter);
 app.use('/call_vehicle',call_vehicleRouter);
@@ -43,9 +35,11 @@ app.use('/call_volunteer',call_volunteerRouter);
 app.use('/requirements',requirementRouter);
 app.use('/disasterlist',disasterlistRouter);
 app.use('/organization',organizationRouter);
+app.use('/',welcomeRouter);*/
 
-
-
+app.use(admin);
+app.use(authority);
+app.use('/',welcomeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

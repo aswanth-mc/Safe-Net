@@ -1,0 +1,52 @@
+
+  <head>
+
+<link rel="stylesheet" href="/stylesheets/home.css">
+  </head>  
+
+        <aside class="sidebar">
+          <h2>Admin Panel</h2>
+          <a href="#">Home</a>
+          <a href="#">Add Administrator</a>
+          <a href="#">Remove Administrator</a>
+          <a href="/login/logout">Logout</a>
+        </aside>
+        <div class="main-content">
+          <header class="header">
+            <h1>Admin Panel Management</h1>
+            <div class="actions">
+              <span>🔔 Notifications</span>
+              <span>👤 Profile</span>
+            </div>
+          </header>
+      
+          <section class="content">
+            <div class="action-buttons">
+              <a href="/autho_verify">
+                <button class="add-btn">New Request</button>
+              </a>
+            </div>
+            <br><br>
+      
+               <div class="list-container">
+        <ul>
+          {{#each data}}
+            <li class="list-item">
+                <div class="photo">{{this.photo}}</div>
+                <div class="details">
+                    <div class="name">{{this.name}}</div>
+                    <div class="designation">{{this.designation}}</div>
+                    <div class="district">{{this.district}}</div>
+                </div>
+                <div class="actions">
+                    <button class="view">View</button>
+                    <button class="delete">Delete</button>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+          </section>
+        </div>
+       
+
