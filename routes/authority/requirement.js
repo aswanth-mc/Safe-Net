@@ -3,7 +3,7 @@ var router = express.Router();
 
 // Render home page
 router.get('/', function (req,res) {
-  res.render("requirement");
+  res.render("authority/requirement");
 });
 
 module.exports = router;

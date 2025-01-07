@@ -1,7 +1,7 @@
 
 var express = require('express');
 var router = express.Router();
-const pool =require("../db");
+const pool =require("../../db");
 const path = require("path")
 const bcrypt =require ('bcryptjs')
 const multer = require("multer");
@@ -21,7 +21,7 @@ const upload =multer({storage});
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('register');
+  res.render('authority/register');
 });
 
 router.post('/',upload.fields([{name:'idp'},{name:'photo'}]),async(req,res)=>{

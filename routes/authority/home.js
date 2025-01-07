@@ -3,7 +3,7 @@ var router = express.Router();
 
 // Render home page
 router.get('/', function (req, res, next) {
-  res.render("call-vehicle");
+  res.render("authority/home");
 });
 
 module.exports = router;

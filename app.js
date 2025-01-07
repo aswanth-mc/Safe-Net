@@ -8,16 +8,16 @@ const cors = require("cors")
 
 
 
-var registerRouter = require('./routes/register');
-var homeRouter = require('./routes/home');
-var loginRouter =require('./routes/login')
-var volunteerRouter =require('./routes/volunteer');
-var call_vehicleRouter =require('./routes/call_vehicle');
-var call_volunteerRouter =require('./routes/call_volunteer');
-var disasterlistRouter =require('./routes/disasterlist');
-var organizationRouter =require('./routes/organization');
-var requirementRouter =require('./routes/requirement');
-var shelterRouter =require('./routes/shelter');
+var registerRouter = require('./routes/authority/register');
+var homeRouter = require('./routes/authority/home');
+var loginRouter =require('./routes/authority/login')
+var volunteerRouter =require('./routes/authority/volunteer');
+var call_vehicleRouter =require('./routes/authority/call_vehicle');
+var call_volunteerRouter =require('./routes/authority/call_volunteer');
+var disasterlistRouter =require('./routes/authority/disasterlist');
+var organizationRouter =require('./routes/authority/organization');
+var requirementRouter =require('./routes/authority/requirement');
+var shelterRouter =require('./routes/authority/shelter');
 
 
 var app = express();

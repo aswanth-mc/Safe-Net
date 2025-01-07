@@ -3,7 +3,7 @@ var router = express.Router();
 
 // Render home page
 router.get('/', function (req, res, next) {
-  res.render("disasterlist");
+  res.render("authority/call_volunteer");
 });
 
 module.exports = router;
