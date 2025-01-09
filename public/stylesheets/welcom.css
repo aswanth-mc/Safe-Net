@@ -18,13 +18,14 @@ body {
 
 /* Container */
 .container {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 250, 250, 0.9);
     padding: 20px;
     border-radius: 10px;
     width: 90%;
     max-width: 800px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
+    opacity: 90%;
 }
 
 /* Header */
@@ -55,6 +56,7 @@ body {
     font-size: 22px;
     margin-bottom: 20px;
     color: #333;
+   
 }
 
 .role-selection {
