@@ -1,21 +1,33 @@
 
 <head>
 
-    <link rel="stylesheet" href="/stylesheets/login.css">
+    <link rel="stylesheet" href="/stylesheets/admin/login.css">
 </head>
-    
-    <div class="login-box">
-  <h2>Login</h2>
-  <form action="/login" method="post">
-    <div class="user-box">
-      <input type="text" name="username" required="">
-      <label>Username</label>
-    </div>
-    <div class="user-box">
-      <input type="password" name="password" required="">
-      <label>Password</label>
-       <button class="button">login</button>
-    </div>
-  </form>
-</div>
+     <div class="login hide-login">
+        <form class="login-container hide-form" method="POST" action="login">
+           <img src="../images/SafeNet Logo no bgroun;t.png" alt="" />
+           <div class="input-container hide-section">
+              <p><input type="text" placeholder="username" name="username" /></p>
+              <p><input type="password" placeholder="Password" name="password" /></p>
+              <p><input type="submit" value="Log in" /></p>
+           </div>
+        </form>
+     </div>
+        <script>
+        const section = document.querySelector(".hide-section");
+            const formContainer = document.querySelector(".login-container");
+            const loginContainer = document.querySelector(".login");
+            const profile = document.querySelector("img");
 
+
+            profile.onclick = () => {
+               requestAnimationFrame(() => {
+                  loginContainer.classList.remove("hide-login");
+                  formContainer.classList.remove("hide-form");
+
+                  setTimeout(() => {
+                     section.classList.remove("hide-section");
+                  }, 1000);
+               });
+            };
+     </script>
