@@ -2,33 +2,33 @@
     <link rel="stylesheet" href="/stylesheets/admin/autho-verify.css">
     <link rel="stylesheet" href="/stylesheets/admin/autho-verify1.css">
 </head>
-    <div class="nav">
-        <a href="/admin/home">
+<div class="nav">
+    <a href="/admin/home">
         <div class="back">
             <img src="/icons/back-button.png" alt="logout" class="back-icon">
         </div>
-        </a>
-        <div>
-            <img src="/images/SafeNet Logo no bg.png"alt="logo" class="logo">
-        </div>
+    </a>
+    <div>
+        <img src="/images/SafeNet Logo no bg.png"alt="logo" class="logo">
     </div>
-    <div class="main">
-        <h1 class="title">Volunteer Verification</h1>
-        <table class="table">
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>phone_number</th>
-                <th>office address</th>
-                <th>designation</th>
-                <th>department</th>
-                <th>employee id</th>
-                <th>id proof</th>
-                <th>photo</th>
-                <th></th>
-        
-            </tr>
-            <tbody>
+</div>
+<div class="main">
+    <h1 class="title">Volunteer Verification</h1>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>phone_number</th>
+            <th>office address</th>
+            <th>designation</th>
+            <th>department</th>
+            <th>employee id</th>
+            <th>id proof</th>
+            <th>photo</th>
+            <th></th>
+
+        </tr>
+        <tbody>
             {{#each data}}
             <tr>
                 <td>{{this.name}}</td>
@@ -38,15 +38,22 @@
                 <td>{{this.designation}}</td>
                 <td>{{this.department}}</td>
                 <td>{{this.employee_id}}</td>
-                <td><img src="{{this.id_proof}}" alt="ID Proof" width="100"></td>
-                <td><img src="{{this.photo}}" alt="Photo" width="100" class="photo-thumbnail" style="width: 50px; height: 50px; cursor: pointer;"></td>
                 <td>
-                    <button class="approve-btn" >Approve</button>
-                    <button class="reject-btn" >Reject</button>
+                    <a href="{{id_proof}}" target="_blank">
+                        <img src="{{id_proof}}" alt="ID Proof" style="width: 100px; height: auto;">
+                    </a>
+                </td>
+                <td>
+                    <a href="{{photo}}" target="_blank">
+                        <img src="{{photo}}" alt="Photo" style="width: 100px; height: auto;">
+                    </a>
+                </td>
+                <td>
+                    <button class="approve-btn">Approve</button>
+                    <button class="reject-btn">Reject</button>
                 </td>
             </tr>
             {{/each}}
-            </tbody>
-        </table>
-    </div>
-    
+        </tbody>
+    </table>
+</div>
