@@ -5,22 +5,22 @@ const passport = require('passport');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('login');
+  res.render('admin/login');
 });
 
 router.post("/", passport.authenticate("local", {
-  successRedirect: '/home',
+  successRedirect: '/admin/home',
   failureRedirect: '/login',
   failureFlash: true
 }));
 
 // Logout route
-router.get('/logout', (req, res) => {
+router.get('/admin/logout', (req, res) => {
   req.logout((err) => { 
     if (err) {
       return next(err);
     }
-    res.redirect('/login');
+    res.redirect('/admin/login');
   });
 });
 

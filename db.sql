@@ -10,10 +10,5 @@ create table authority(
     id_proof TEXT,
     photo TEXT,
     password_hash TEXT NOT NULL,
-<<<<<<< HEAD
     verified boolean default false
 );
-=======
-      verified BOOLEAN DEFAULT NULL
-);
->>>>>>> 4149f1cfe044210c337394ba8810572fc9836052

@@ -1,6 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
-var app = express();
+var admin = express();
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -24,20 +24,20 @@ admin.set('views', path.join(__dirname, 'views'));
 admin.set('view engine', 'hbs');
 
 // passport initilize
-app.use(
+admin.use(
     session({
       secret:"your-secret-key",
       resave:false, 
       saveUninitialized:true,
     })
   );
-  app.use(passport.initialize());
-  app.use(passport.session());
-  app.use(flash());
+  admin.use(passport.initialize());
+  admin.use(passport.session());
+  admin.use(flash());
 
-admin.use('/login', loginRouter);
-admin.use('/home', homeRouter);
-admin.use('/autho_verify',autho_verifyRouter);
+admin.use('/admin/login', loginRouter);
+admin.use('/admin/home', homeRouter);
+admin.use('/admin/autho_verify',autho_verifyRouter);
 
 
 module.exports = admin;

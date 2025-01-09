@@ -18,7 +18,7 @@ router.get('/', isAuthenticated, async (req, res) => {
     const query = `SELECT name, designation, district FROM autho ORDER BY ${sortBy} ${order}`;
     const { rows } = await pool.query(query);
 
-    res.render("home", { data: rows, user: req.user });
+    res.render("admin/home", { data: rows, user: req.user });
   } catch (error) {
     console.error("Error fetching sorted data:", error.message);
     res.status(500).send("An error occurred while fetching data.");
