@@ -10,7 +10,7 @@ const fs = require ("fs")
 
 //multer
 const storage = multer.diskStorage({
-  destination: path.join(__dirname, '../uploads'), // Ensure correct path
+  destination: path.join(__dirname, '../../uploads'), // Ensure correct path
   filename: (req, file, cb) => {
     cb(null, `${Date.now()}-${file.originalname}`);
   },
