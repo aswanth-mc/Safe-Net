@@ -38,7 +38,7 @@ app.use('/disasterlist',disasterlistRouter);
 app.use('/organization',organizationRouter);
 app.use('/',welcomeRouter);*/
 
-app.use(admin);
+app.use('/admin',admin);
 app.use('/authority',authority);
 app.use('/',welcomeRouter);
 
