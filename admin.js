@@ -17,6 +17,7 @@ var autho_verifyRouter = require('./routes/admin/autho_verify');
 
 
 admin.use(express.static(path.join(__dirname, 'public')));
+admin.use('./uploads', express.static(path.join(__dirname, 'uploads'))); 
 admin.use(express.json());
 admin.use(express.urlencoded({ extended: false }));
 
