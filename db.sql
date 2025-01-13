@@ -1,3 +1,4 @@
+--authority table
 create table authority(
      employee_id VARCHAR PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -12,3 +13,26 @@ create table authority(
     password_hash TEXT NOT NULL,
     verified boolean default false
 );
+
+--user table
+create table users(
+    id serial primary key, 
+    name varchar(50) not null, 
+    email varchar(50) not null, 
+    password text not null,
+    phone varchar(10) not null, 
+    blood_group varchar(10),
+    is_donor boolean default false, 
+    location text not null, 
+    is_volunteer boolean default false,
+    unique(email)
+    );
+
+-- volunteer table
+create table volunteer(
+    id serial primary key, 
+    user_id serial,
+    category varchar(20) not null, 
+    certificate text not null, 
+    is_approved boolean default false, 
+    foreign key(user_id) references users(id));

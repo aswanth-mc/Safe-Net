@@ -1,34 +1,34 @@
 
 <head>
+
     <link rel="stylesheet" href="/stylesheets/authority/login.css">
 </head>
-<body>
-    <div class="box">
-    <div class="left-pannel">
-        <img src="/images/SafeNet Logo no bg.png" alt="logo">
-        <h1 class="explore">Explore SafeNet</h1>
-        <p class="para">Your all-in-one tool for disaster <br> preparedness and response.</p>
-    </div>
-    <div class="right-pannel">
-        <div class="contant">
-
-        <form action="/login" method="post">
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="email">
-            </div>
-            <div class="mb-3">
-                 <label for="inputPassword5" class="form-label">Password</label>
-                <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" name="pass">
-                <div id="passwordHelpBlock" class="form-text">
-                </div>
-
-                    <div class="mb-3">
-                        <button type="submit" class="btn btn-success" >Submit</button>
-                    </div>
-                </div>
-
+     <div class="login hide-login">
+        <form class="login-container hide-form" method="POST" action="login">
+           <img src="../images/SafeNet Logo no bgroun;t.png" alt="" />
+           <div class="input-container hide-section">
+              <p><input type="email" placeholder="email" name="email" /></p>
+              <p><input type="password" placeholder="Password" name="password" /></p>
+              <p><input type="submit" value="Log in" /></p>
+              <p>if you don't have account <a href="/authority/register">Register</a></p>
+           </div>
         </form>
-    </div>
-    </div>
-   
+     </div>
+        <script>
+        const section = document.querySelector(".hide-section");
+            const formContainer = document.querySelector(".login-container");
+            const loginContainer = document.querySelector(".login");
+            const profile = document.querySelector("img");
+
+
+            profile.onclick = () => {
+               requestAnimationFrame(() => {
+                  loginContainer.classList.remove("hide-login");
+                  formContainer.classList.remove("hide-form");
+
+                  setTimeout(() => {
+                     section.classList.remove("hide-section");
+                  }, 1000);
+               });
+            };
+     </script>

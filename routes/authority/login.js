@@ -3,8 +3,8 @@ var router = express.Router();
 const pool = require('../../db');
 
 // Render login page
-router.get('/', function (req, res, next) {
-  res.render('/login');
+router.get('/', function (req, res) {
+  res.render('authority/login');
 });
 
 // Handle login
