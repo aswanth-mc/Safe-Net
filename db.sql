@@ -36,3 +36,13 @@ create table volunteer(
     certificate text not null, 
     is_approved boolean default false, 
     foreign key(user_id) references users(id));
+
+    -- disaster 
+    create table disaster(
+        id serial primary key, 
+        type varchar(50) not null, 
+        location text not null, 
+        date date not null, 
+        photo text notnull, 
+        is_verified boolean default false
+        );
