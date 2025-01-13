@@ -25,7 +25,7 @@ router.get('/', function(req, res) {
 });
 
 router.post('/',upload.fields([{name:'idp'},{name:'photo'}]),async(req,res)=>{
-
+  console.log('register called')
   console.log('uploaded files ',req.files);
   console.log('request body ',req.body);
   if (!req.files['idp'] || !req.files['photo']) {

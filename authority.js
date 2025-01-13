@@ -16,6 +16,7 @@ var shelterRouter =require('./routes/authority/shelter');
 const authority=express();
 
 authority.use(express.static(path.join(__dirname, 'public')));
+authority.use('./uploads', express.static(path.join(__dirname, 'uploads'))); 
 authority.set('views', path.join(__dirname, 'views'));
 authority.set('view engine', 'hbs');
 authority.use(express.json());
@@ -34,5 +35,10 @@ authority.use('/requirements',requirementRouter);
 authority.use('/disasterlist',disasterlistRouter);
 authority.use('/organization',organizationRouter);
 
+authority.use((req, res, next) => {
+    res.status(404).send('Not Found');
+  });
+  
+  
 
 module.exports = authority;
