@@ -11,6 +11,7 @@ const session =require("express-session")
 const flash =require("connect-flash")
 
 
+
 var loginRouter = require('./routes/admin/login');
 var homeRouter = require('./routes/admin/home');
 var autho_verifyRouter = require('./routes/admin/autho_verify');
@@ -36,9 +37,9 @@ admin.use(
   admin.use(passport.session());
   admin.use(flash());
 
-admin.use('/admin/login', loginRouter);
-admin.use('/admin/home', homeRouter);
-admin.use('/admin/autho_verify',autho_verifyRouter);
+admin.use('/login', loginRouter);
+admin.use('/home', homeRouter);
+admin.use('/autho_verify',autho_verifyRouter);
 
 
 module.exports = admin;
