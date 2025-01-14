@@ -45,81 +45,32 @@
           <button onclick="showImageModal('{{photo}}')">View Photo</button>
         </td>
         <td>
-                    <button class="approve-btn">Approve</button>
+                    <button class="approve-btn" onclick="autho_verify('{{id}}')">Approve</button>
                     <button class="reject-btn">Reject</button>
                 </td>
             </tr>
             {{/each}}
         </tbody>
     </table>
-<!-- Modal Structure -->
-<div id="imageModal" class="modal">
-  <div class="modal-content">
-    <span class="close-btn" onclick="closeModal()">&times;</span>
-    <img id="modalImage" src="" alt="Image Preview" style="max-width: 100%; max-height: 100%;">
-  </div>
-</div>
-
-<style>
-  /* Modal styling */
-  .modal {
-    display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5); /* Black with opacity */
-  }
-
-  .modal-content {
-    position: relative;
-    margin: auto;
-    padding: 20px;
-    width: 80%;
-    max-width: 600px;
-    background: white;
-    border-radius: 8px;
-    text-align: center;
-  }
-
-  .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    cursor: pointer;
-  }
-
-  .close-btn:hover {
-    color: red;
-  }
-</style>
-
-<script>
-  // Function to show the modal
-  function showImageModal(imagePath) {
-    const modal = document.getElementById('imageModal');
-    const modalImage = document.getElementById('modalImage');
-    modalImage.src = `/uploads/${imagePath}`; // Adjust the path based on your server's setup
-    modal.style.display = 'block';
-  }
-
-  // Function to close the modal
-  function closeModal() {
-    const modal = document.getElementById('imageModal');
-    modal.style.display = 'none';
-  }
-
-  // Close modal when clicking outside of it
-  window.onclick = function (event) {
-    const modal = document.getElementById('imageModal');
-    if (event.target === modal) {
-      modal.style.display = 'none';
+    <script>
+ window.autho_verify=async function (id){
+    try{
+      const response =await fetch('/admin/autho_verify',{
+        method:'POSt',
+        headers:{
+          'Content-Type':'application/json',
+        },
+        body:JSON.stringify({id}),
+      });
+      if (response.ok){
+        alert("authority approver");
+        location.reload();
+      }else{
+        alert("falied to approve");
+      }
+    }catch(error){
+      console.error('Error:'error);
+      alert("errror");
     }
-  };
-</script>
+  }
+  </script>

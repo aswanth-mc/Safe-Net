@@ -14,15 +14,7 @@ router.post("/", passport.authenticate("local", {
   failureFlash: true
 }));
 
-// Logout route
-/*router.get('/admin/logout', (req, res) => {
-  req.logout((err) => { 
-    if (err) {
-      return next(err);
-    }
-    res.redirect('/admin/login');
-  });
-  });*/
+
 
 
 

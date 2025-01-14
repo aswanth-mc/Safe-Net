@@ -14,5 +14,16 @@ router.get('/',isAuthenticated, async function(req, res) {
     res.status(500).send('An error occurred while fetching data.');
   }
   });
+
+  router.post('/',async(req,res)=>{
+    const{id}=req.body;
+    try {
+      await pool.query('update authority set verified=true where id=$1',[id]);
+      res.status(200).send({message:'approval successful'});
+    } catch (error) {
+      console.error('Error updating verification status:', error);
+        res.status(500).send({ message: 'Error updating verification status.' });
+    }
+  })
   
   module.exports = router;
