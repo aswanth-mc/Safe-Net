@@ -15,7 +15,7 @@ const flash =require("connect-flash")
 var loginRouter = require('./routes/admin/login');
 var homeRouter = require('./routes/admin/home');
 var autho_verifyRouter = require('./routes/admin/autho_verify');
-
+var logoutRouter =require('./routes/admin/logout')
 
 admin.use(express.static(path.join(__dirname, 'public')));
 admin.use('./uploads', express.static(path.join(__dirname, 'uploads'))); 
@@ -40,6 +40,6 @@ admin.use(
 admin.use('/login', loginRouter);
 admin.use('/home', homeRouter);
 admin.use('/autho_verify',autho_verifyRouter);
-
+admin.use('/logout',logoutRouter)
 
 module.exports = admin;
