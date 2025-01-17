@@ -45,7 +45,7 @@
           <button onclick="showImageModal('{{photo}}')">View Photo</button>
         </td>
         <td>
-                    <button class="approve-btn" onclick="autho_verify('{{id}}')">Approve</button>
+                    <button class="approve-btn" onclick="autho_verify('{{id}}')" id="approve">Approve</button>
                     <button class="reject-btn">Reject</button>
                 </td>
             </tr>
@@ -53,7 +53,9 @@
         </tbody>
     </table>
     <script>
- window.autho_verify=async function (id){
+      const autho_verify=document.getElementById(approve);
+      approve.addevent
+ async function autho_verify(id){
     try{
       const response =await fetch('/admin/autho_verify',{
         method:'POSt',
