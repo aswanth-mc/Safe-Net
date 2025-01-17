@@ -10,6 +10,7 @@ const cors = require("cors")
 var authority = require('./authority');
 var admin = require('./admin');
 var welcomeRouter =require('./routes/welcome');
+var user =require('./user');
 
 
 var app = express();
@@ -26,21 +27,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-/*app.use('/register', registerRouter);
-app.use('/home', homeRouter);
-app.use('/authority-login',loginRouter);
-app.use('/volunteer',volunteerRouter);
-app.use('/shelter',shelterRouter);
-app.use('/call_vehicle',call_vehicleRouter);
-app.use('/call_volunteer',call_volunteerRouter);
-app.use('/requirements',requirementRouter);
-app.use('/disasterlist',disasterlistRouter);
-app.use('/organization',organizationRouter);
-app.use('/',welcomeRouter);*/
+
 
 app.use('/admin',admin);
 app.use('/authority',authority);
 app.use('/',welcomeRouter);
+app.use('/user',user);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

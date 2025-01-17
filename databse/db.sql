@@ -16,15 +16,15 @@ create table authority(
 
 --user table
 create table users(
-    id serial primary key, 
-    name varchar(50) not null, 
-    email varchar(50) not null, 
-    password text not null,
+    id serial primary key,
+    name varchar(20) not null,
+    email varchar(30) not null,
     phone varchar(10) not null, 
-    blood_group varchar(10),
-    is_donor boolean default false, 
-    location text not null, 
-    is_volunteer boolean default false,
+    district  varchar(20) not null,
+    state varchar(20) not null,
+    dob date not null,blood_group varchar(20) not null,
+    is_donor boolean default false,
+    password text not null,
     unique(email)
     );
 

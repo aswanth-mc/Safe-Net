@@ -38,22 +38,41 @@
                 <td>{{this.designation}}</td>
                 <td>{{this.department}}</td>
                 <td>{{this.employee_id}}</td>
-                <td>
-                    <a href="{{id_proof}}" target="_blank">
-                        <img src="{{id_proof}}" alt="ID Proof" style="width: 100px; height: auto;">
-                    </a>
-                </td>
-                <td>
-                    <a href="{{photo}}" target="_blank">
-                        <img src="{{photo}}" alt="Photo" style="width: 100px; height: auto;">
-                    </a>
-                </td>
-                <td>
-                    <button class="approve-btn">Approve</button>
+         <td>
+          <button onclick="showImageModal('{{id_proof}}')">View ID Proof</button>
+        </td>
+        <td>
+          <button onclick="showImageModal('{{photo}}')">View Photo</button>
+        </td>
+        <td>
+                    <button class="approve-btn" onclick="autho_verify('{{id}}')" id="approve">Approve</button>
                     <button class="reject-btn">Reject</button>
                 </td>
             </tr>
             {{/each}}
         </tbody>
     </table>
-</div>
+    <script>
+      const autho_verify=document.getElementById(approve);
+      approve.addevent
+ async function autho_verify(id){
+    try{
+      const response =await fetch('/admin/autho_verify',{
+        method:'POSt',
+        headers:{
+          'Content-Type':'application/json',
+        },
+        body:JSON.stringify({id}),
+      });
+      if (response.ok){
+        alert("authority approver");
+        location.reload();
+      }else{
+        alert("falied to approve");
+      }
+    }catch(error){
+      console.error('Error:'error);
+      alert("errror");
+    }
+  }
+  </script>

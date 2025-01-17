@@ -29,6 +29,6 @@ router.post('/', async (req, res) => {
     console.error("Error during login:", error.message);
     res.status(500).send("Internal server error");
   }
-});
+  });
 
 module.exports = router;
