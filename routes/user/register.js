@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var pool = require('../../db');
+var bcrypt = require('bcrypt');
 
 
 
@@ -14,8 +15,9 @@ router.post('/',async(req,res)=>{
     
 
     try {
-        const query='insert into users(name,email,phone,district,state,dob,blood_group,password) values ($1,$2,$3,$4,$5,$6,$7,$8) returning id;';
-        const values = [name, email,number,dis,state,dob,blood_group,pass];
+        const password_hash =bcrypt.hashSync(pass,10);
+        const query='insert into users(name,email,phone,district,state,dob,blood_group,password_hash) values ($1,$2,$3,$4,$5,$6,$7,$8) returning id;';
+        const values = [name, email,number,dis,state,dob,blood_group,password_hash];
 
     console.log('Executing query:', query);
     console.log('With values:', values);
