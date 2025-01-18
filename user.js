@@ -4,6 +4,7 @@ const path = require ('path');
 
 var registerRouter =require('./routes/user/register')
 var organizationRouter =require('./routes/user/organization')
+var vehicleRouter =require('./routes/user/vehicle')
 
 const user=express();
 
@@ -16,6 +17,7 @@ user.use(express.urlencoded({ extended: false }));
 
 user.use('/register',registerRouter);
 user.use('/organization',organizationRouter);
+user.use('/vehicle',vehicleRouter);
 
 
 user.use((req, res, next) => {
