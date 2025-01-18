@@ -3,6 +3,7 @@ const path = require ('path');
 
 
 var registerRouter =require('./routes/user/register')
+var loginRouter = require('./routes/user/login')
 var organizationRouter =require('./routes/user/organization')
 var vehicleRouter =require('./routes/user/vehicle')
 
@@ -16,6 +17,7 @@ user.use(express.json());
 user.use(express.urlencoded({ extended: false }));
 
 user.use('/register',registerRouter);
+user.use('/login',loginRouter)
 user.use('/organization',organizationRouter);
 user.use('/vehicle',vehicleRouter);
 
