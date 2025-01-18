@@ -5,7 +5,7 @@ var pool =require("../../db")
 // Render home page
 router.get('/', async function a (req, res) {
   try {
-    const query = `SELECT name, location, phone, email FROM rescue_club`;
+    const query = `SELECT name, location, phone, email FROM organization`;
     const { rows } = await pool.query(query);
 
     res.render('authority/organization', { data: rows });

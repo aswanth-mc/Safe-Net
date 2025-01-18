@@ -24,7 +24,7 @@ create table users(
     state varchar(20) not null,
     dob date not null,blood_group varchar(20) not null,
     is_donor boolean default false,
-    password text not null,
+    password_hash text not null,
     unique(email)
     );
 
@@ -37,6 +37,7 @@ create table volunteer(
     is_approved boolean default false, 
     foreign key(user_id) references users(id));
 
+<<<<<<< HEAD
     -- disaster 
     create table disaster(
         id serial primary key, 
@@ -46,3 +47,30 @@ create table volunteer(
         photo text notnull, 
         is_verified boolean default false
         );
+=======
+    -- organization table
+    create table organization (
+        id serial primary key,
+        name varchar(30) not null,
+        location text,phone varchar(20) not null,
+        email varchar(20) not null,
+        district varchar(20) not null, 
+        state varchar(20) not null,
+        created_by serial ,
+        foreign key(created_by) references users(id),
+        is_verified boolean default false);
+
+        -- vehicle table 
+
+        create table vehicle (
+            id serial primary key, 
+            owner_name varchar(20) not null, 
+            vehicle_type varchar(20) not null,
+            model varchar(20) not null,
+            vehicle_no varchar(30) not null, 
+            phone varchar(20) not null,
+            email varchar(20) not null,
+            district varchar(20) not null,
+            state varchar(20) not null
+            );
+>>>>>>> validation
