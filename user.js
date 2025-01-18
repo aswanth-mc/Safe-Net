@@ -3,6 +3,7 @@ const path = require ('path');
 
 
 var registerRouter =require('./routes/user/register')
+var organizationRouter =require('./routes/user/organization')
 
 const user=express();
 
@@ -14,6 +15,7 @@ user.use(express.json());
 user.use(express.urlencoded({ extended: false }));
 
 user.use('/register',registerRouter);
+user.use('/organization',organizationRouter);
 
 
 user.use((req, res, next) => {
