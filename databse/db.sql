@@ -36,3 +36,15 @@ create table volunteer(
     certificate text not null, 
     is_approved boolean default false, 
     foreign key(user_id) references users(id));
+
+    -- organization table
+    create table organization (
+        id serial primary key,
+        name varchar(30) not null,
+        location text,phone varchar(20) not null,
+        email varchar(20) not null,
+        district varchar(20) not null, 
+        state varchar(20) not null,
+        created_by serial ,
+        foreign key(created_by) references users(id),
+        is_verified boolean default false);
