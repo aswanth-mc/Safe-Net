@@ -48,3 +48,17 @@ create table volunteer(
         created_by serial ,
         foreign key(created_by) references users(id),
         is_verified boolean default false);
+
+        -- vehicle table 
+
+        create table vehicle (
+            id serial primary key, 
+            owner_name varchar(20) not null, 
+            vehicle_type varchar(20) not null,
+            model varchar(20) not null,
+            vehicle_no varchar(30) not null, 
+            phone varchar(20) not null,
+            email varchar(20) not null,
+            district varchar(20) not null,
+            state varchar(20) not null
+            );
