@@ -24,7 +24,7 @@ create table users(
     state varchar(20) not null,
     dob date not null,blood_group varchar(20) not null,
     is_donor boolean default false,
-    password text not null,
+    password_hash text not null,
     unique(email)
     );
 
