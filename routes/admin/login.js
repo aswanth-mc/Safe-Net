@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const pool =require('../../db');
-const passport = require('passport');
+const passport = require('../../controller/passport');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {

@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const pool =require('./db')
 const cors = require("cors")
-const passport = require("./passport")
+const passport = require("./controller/passport")
 const session =require("express-session")
 const flash =require("connect-flash")
 
